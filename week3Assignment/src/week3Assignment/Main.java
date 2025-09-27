@@ -3,19 +3,12 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Main {
-
 	public static void main(String[] args) {
 		Scanner scnr = new Scanner(System.in); 
 		DecimalFormat decFor = new DecimalFormat("$#,##0.00"); /* decimal formatter for final output */
 		double coupon;
-		double weekOneBill;
-		double weekTwoBill;
-		double weekThreeBill;
-		double weekFourBill;
-		double monthlyTotal;
-		double monthlyTotalCoupon;
-		double weeklyAverage;
-		double weeklyAverageCoupon;
+		double weekOneBill, weekTwoBill, weekThreeBill, weekFourBill;
+		double monthlyTotal, monthlyTotalCoupon, weeklyAverage, weeklyAverageCoupon;
 		double couponPercentage;
 		
 		System.out.println("Please enter your coupon amount as a decimal (example: .10 for 10%):");
@@ -27,7 +20,7 @@ public class Main {
 		}
 		
 		couponPercentage = coupon * 100;  /* display coupon value as percentage */
-		System.out.println("You have entered a coupon for " + couponPercentage + "%.");
+		System.out.println("You have a coupon for " + couponPercentage + "%.");
 			
 		System.out.println("Please enter your grocery bill for week 1:");
 		weekOneBill = scnr.nextDouble();
@@ -47,11 +40,8 @@ public class Main {
 		weeklyAverageCoupon = monthlyTotalCoupon / 4.0;
 				
 		System.out.println("Your monthly total grocery bill without a coupon is: " + decFor.format(monthlyTotal));
-				
 		System.out.println("Your monthly total grocery bill with a coupon is: " + decFor.format(monthlyTotalCoupon));		
-		
 		System.out.println("Your weekly average grocery bill without a coupon is: " + decFor.format(weeklyAverage));
-		
 		System.out.println("Your weekly average grocery bill with a coupon is: " + decFor.format(weeklyAverageCoupon));
 		
 		scnr.close(); /* Close scanner */
