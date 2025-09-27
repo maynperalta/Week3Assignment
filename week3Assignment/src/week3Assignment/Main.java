@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner scnr = new Scanner(System.in); 
-		DecimalFormat decFor = new DecimalFormat("$#,###.00"); /* decimal formatter for final output */
+		DecimalFormat decFor = new DecimalFormat("$#,##0.00"); /* decimal formatter for final output */
 		double coupon;
 		double weekOneBill;
 		double weekTwoBill;
@@ -21,12 +21,12 @@ public class Main {
 		System.out.println("Please enter your coupon amount as a decimal (example: .10 for 10%):");
 		coupon = scnr.nextDouble();
 		
-		if (coupon <= 0 || coupon >= 1) {
-			System.out.println("Invalid coupon value. Defaulting to 10% (.10)."); /* default coupon to 10 percent if invalid */
+		if (coupon <= 0 || coupon > 1) {
+			System.out.println("Invalid coupon value. Defaulting to 10% (.10)."); /* default coupon to 10% if invalid */
 			coupon = 0.10;
 		}
 		
-		couponPercentage = coupon * 100;  /* convert coupon value entered and display as percentage */
+		couponPercentage = coupon * 100;  /* display coupon value as percentage */
 		System.out.println("You have entered a coupon for " + couponPercentage + "%.");
 			
 		System.out.println("Please enter your grocery bill for week 1:");
@@ -41,7 +41,7 @@ public class Main {
 		System.out.println("Please enter your grocery bill for week 4:");
 		weekFourBill = scnr.nextDouble();
 		
-		monthlyTotal = (weekOneBill + weekTwoBill + weekThreeBill + weekFourBill); /* calculations and totals with and without coupon */
+		monthlyTotal = (weekOneBill + weekTwoBill + weekThreeBill + weekFourBill); /* totals and averages with and without coupon */
 		monthlyTotalCoupon = monthlyTotal * (1 - coupon);
 		weeklyAverage = monthlyTotal / 4.0;
 		weeklyAverageCoupon = monthlyTotalCoupon / 4.0;
